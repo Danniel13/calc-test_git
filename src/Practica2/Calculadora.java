@@ -53,6 +53,7 @@ public Calculadora() {
 	   multiplication.setFont(new Font("Arial",Font.BOLD,50));
 	   add(multiplication);
 	   
+	   
 	   division= new JButton("/");
 	   division.setBounds(220,220,130,50);
 	   division.addActionListener(this);
@@ -77,13 +78,13 @@ public void actionPerformed(ActionEvent e) {
 	   double num1=0,num2=0;
 	   if (textField.getText().isEmpty()==true || textField2.getText().isEmpty()==true ) {
 			JFrame jFrame = new JFrame();
-			JOptionPane.showMessageDialog(jFrame,"LLene los dos campos para continuar");
+			JOptionPane.showMessageDialog(jFrame,"LLene los dos campos para poder continuar");
 	   }
 	   try {
 		   num1=Integer.parseInt(textField.getText());
 		   num2=Integer.parseInt(textField2.getText());
 	}catch (NumberFormatException nfe) {
-		System.out.println("No metas letras");
+		System.out.println("No introduzcas letras");
 	}
 	   if (e.getSource()==addition) {
 			label.setText("+");
@@ -122,7 +123,7 @@ public void actionPerformed(ActionEvent e) {
 			break;
 		default:
 			JFrame jFrame = new JFrame();
-			JOptionPane.showMessageDialog(jFrame,"Escoge una operacion");
+			JOptionPane.showMessageDialog(jFrame,"Escoge solo una operacion");
 		break;
 		}
 	   }
