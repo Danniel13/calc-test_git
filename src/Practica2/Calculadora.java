@@ -30,7 +30,7 @@ public Calculadora() {
 	   
 	   label1 = new JLabel();
 	   label1.setBounds(220,250,100,150);
-	   label1.setFont(new Font("Arial",Font.BOLD,35));
+	   label1.setFont(new Font("Arial",Font.BOLD,25));
 	   add(label1);
 	   
 	   
