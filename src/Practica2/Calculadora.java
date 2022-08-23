@@ -6,7 +6,7 @@ import java.awt.event.*;
 import java.security.PublicKey;
 public class Calculadora extends JFrame implements ActionListener {
      private JTextField textField,textField2;
-     private JButton addition,substraction,multiplication,division,result;
+     private JButton addition,substraction,multiplication,division,percent,result;
      private JLabel label,label1;
      double result1;
  
@@ -25,12 +25,12 @@ public Calculadora() {
 	   
 	   label = new JLabel();
 	   label.setBounds(185,50,50,50);
-	   label.setFont(new Font("Arial",Font.BOLD,50));
+	   label.setFont(new Font("Arial",Font.BOLD,30));
 	   add(label);
 	   
 	   label1 = new JLabel();
-	   label1.setBounds(50,300,300,50);
-	   label1.setFont(new Font("Arial",Font.BOLD,50));
+	   label1.setBounds(220,250,100,150);
+	   label1.setFont(new Font("Arial",Font.BOLD,35));
 	   add(label1);
 	   
 	   
@@ -39,7 +39,8 @@ public Calculadora() {
 	   addition.addActionListener(this);
 	   addition.setFont(new Font("Arial",Font.BOLD,50));
 	   add(addition);
-	   
+
+   	   
 	   substraction= new JButton("-");
 	   substraction.setBounds(50,220,130,50);
 	   substraction.setFont(new Font("Arial",Font.BOLD,50));
@@ -52,11 +53,17 @@ public Calculadora() {
 	   multiplication.setFont(new Font("Arial",Font.BOLD,50));
 	   add(multiplication);
 	   
-	   division= new JButton("÷");
+	   division= new JButton("/");
 	   division.setBounds(220,220,130,50);
 	   division.addActionListener(this);
 	   division.setFont(new Font("Arial",Font.BOLD,50));
 	   add(division);
+
+     percent= new JButton("%"); //Function percent
+	   percent.setBounds(50,300,130,50);
+	   percent.addActionListener(this);
+	   percent.setFont(new Font("Arial",Font.BOLD,50));
+	   add(percent);
 	   
 	   result= new JButton("=");
 	   result.setBounds(50,400,300,50);
@@ -83,9 +90,11 @@ public void actionPerformed(ActionEvent e) {
 		} else if (e.getSource()==substraction) {
 			 label.setText("-");
 		}else if (e.getSource()==division) {
-		     label.setText("÷");		
+		     label.setText("/");		
 		}else if (e.getSource()==multiplication) {
 		     label.setText("*");
+        }else if (e.getSource()==percent) {
+          label.setText("%");
 		}
 	   if (e.getSource()==result) {
 		   String operation=label.getText();
@@ -102,8 +111,13 @@ public void actionPerformed(ActionEvent e) {
 			result1=num1*num2;
 			label1.setText(""+result1);
 			break;
-		case "÷":
+		case "/":
 			result1=num1/num2;
+			label1.setText(""+result1);
+			break;
+
+    case "%":
+			result1=num1* num2 /100;
 			label1.setText(""+result1);
 			break;
 		default:
