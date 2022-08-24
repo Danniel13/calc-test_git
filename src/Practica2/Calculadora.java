@@ -1,17 +1,21 @@
 package Practica2;
-import javax.swing.*;
-import javax.swing.plaf.FontUIResource;
-import java.awt.*;
-import java.awt.event.*;
-import java.security.PublicKey;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 public class Calculadora extends JFrame implements ActionListener {
-     private JTextField textField,textField2;
-     private JButton addition,substraction,multiplication,division,percent,result;
-     private JLabel label,label1;
-     double result1;
- 
+    private JTextField textField,textField2;
+    private JButton addition,substraction,multiplication,division,percent, exponente, result;
+    private JLabel label,label1;
+    double result1;
+
 public Calculadora() {
-	   setTitle("Calculadora");
+	   setTitle("Calculadora - Grupo 03");
 	   setLayout(null);
 	   textField = new JTextField();
 	   textField.setBounds(50,50,130,50);
@@ -60,11 +64,17 @@ public Calculadora() {
 	   division.setFont(new Font("Calibri",Font.BOLD,50));
 	   add(division);
 
-     percent= new JButton("%"); //Function percent
+       percent= new JButton("%"); //Function percent
 	   percent.setBounds(50,300,130,50);
 	   percent.addActionListener(this);
 	   percent.setFont(new Font("Calibri",Font.BOLD,50));
 	   add(percent);
+
+	   exponente= new JButton("exp"); //Function percent
+	   exponente.setBounds(220,300,130,50);
+	   exponente.addActionListener(this);
+	   exponente.setFont(new Font("Arial",Font.BOLD,50));
+	   add(exponente);
 	   
 	   result= new JButton("=");
 	   result.setBounds(50,400,300,50);
@@ -72,34 +82,37 @@ public Calculadora() {
 	   result.setFont(new Font("Calibri",Font.BOLD,50));
 	   add(result);
 	   
+	   
 	  }
 
 public void actionPerformed(ActionEvent e) {
-	   double num1=0,num2=0;
-	   if (textField.getText().isEmpty()==true || textField2.getText().isEmpty()==true ) {
+	double num1=0,num2=0;
+	if (textField.getText().isEmpty()==true || textField2.getText().isEmpty()==true ) {
 			JFrame jFrame = new JFrame();
-			JOptionPane.showMessageDialog(jFrame,"LLene los dos campos para poder continuar");
-	   }
-	   try {
-		   num1=Integer.parseInt(textField.getText());
-		   num2=Integer.parseInt(textField2.getText());
+			JOptionPane.showMessageDialog(jFrame,"LLene los dos campos para continuar");
+	}
+	try {
+		num1=Integer.parseInt(textField.getText());
+		num2=Integer.parseInt(textField2.getText());
 	}catch (NumberFormatException nfe) {
 		System.out.println("No introduzcas letras");
 	}
-	   if (e.getSource()==addition) {
+	if (e.getSource()==addition) {
 			label.setText("+");
 		} else if (e.getSource()==substraction) {
-			 label.setText("-");
+		label.setText("-");
 		}else if (e.getSource()==division) {
-		     label.setText("/");		
+		label.setText("/");		
 		}else if (e.getSource()==multiplication) {
-		     label.setText("*");
+		label.setText("*");
         }else if (e.getSource()==percent) {
           label.setText("%");
+		}else if (e.getSource()==exponente) {
+			label.setText("exp");
 		}
-	   if (e.getSource()==result) {
-		   String operation=label.getText();
-		   switch (operation) {
+	if (e.getSource()==result) {
+		String operation=label.getText();
+		switch (operation) {
 		case "+":
 			result1=num1+num2;
 			label1.setText(""+result1);
@@ -117,16 +130,19 @@ public void actionPerformed(ActionEvent e) {
 			label1.setText(""+result1);
 			break;
 
-    case "%":
+    	case "%":
 			result1=num1* num2 /100;
 			label1.setText(""+result1);
 			break;
+		case "exp":
+			result1= Math.pow(num1, num2);
+			label1.setText(""+result1);
 		default:
 			JFrame jFrame = new JFrame();
 			JOptionPane.showMessageDialog(jFrame,"Escoge solo una operacion");
 		break;
 		}
-	   }
+	}
 }
 
 
