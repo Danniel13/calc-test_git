@@ -89,7 +89,7 @@ public void actionPerformed(ActionEvent e) {
 		num1=Integer.parseInt(textField.getText());
 		num2=Integer.parseInt(textField2.getText());
 	}catch (NumberFormatException nfe) {
-		System.out.println("No metas letras");
+		System.out.println("No introduzcas letras");
 	}
 	if (e.getSource()==addition) {
 			label.setText("+");
@@ -128,7 +128,7 @@ public void actionPerformed(ActionEvent e) {
 			break;
 		default:
 			JFrame jFrame = new JFrame();
-			JOptionPane.showMessageDialog(jFrame,"Escoge una operacion");
+			JOptionPane.showMessageDialog(jFrame,"Escoge solo una operacion");
 		break;
 		}
 	}
