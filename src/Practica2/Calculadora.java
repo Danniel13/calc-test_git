@@ -1,12 +1,16 @@
 package Practica2;
-import javax.swing.*;
-import javax.swing.plaf.FontUIResource;
-import java.awt.*;
-import java.awt.event.*;
-import java.security.PublicKey;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 public class Calculadora extends JFrame implements ActionListener {
      private JTextField textField,textField2;
-     private JButton addition,substraction,multiplication,division,percent,result;
+     private JButton addition,substraction,multiplication,division,percent, exponente, result;
      private JLabel label,label1;
      double result1;
  
@@ -29,7 +33,7 @@ public Calculadora() {
 	   add(label);
 	   
 	   label1 = new JLabel();
-	   label1.setBounds(220,250,100,150);
+	   label1.setBounds(175,300,100,150);
 	   label1.setFont(new Font("Arial",Font.BOLD,25));
 	   add(label1);
 	   
@@ -60,17 +64,24 @@ public Calculadora() {
 	   division.setFont(new Font("Arial",Font.BOLD,50));
 	   add(division);
 
-     percent= new JButton("%"); //Function percent
+       percent= new JButton("%"); //Function percent
 	   percent.setBounds(50,300,130,50);
 	   percent.addActionListener(this);
 	   percent.setFont(new Font("Arial",Font.BOLD,50));
 	   add(percent);
+
+	   exponente= new JButton("exp"); //Function percent
+	   exponente.setBounds(220,300,130,50);
+	   exponente.addActionListener(this);
+	   exponente.setFont(new Font("Arial",Font.BOLD,50));
+	   add(exponente);
 	   
 	   result= new JButton("=");
 	   result.setBounds(50,400,300,50);
 	   result.addActionListener(this);
 	   result.setFont(new Font("Arial",Font.BOLD,50));
 	   add(result);
+	   
 	   
 	  }
 
@@ -96,6 +107,8 @@ public void actionPerformed(ActionEvent e) {
 		     label.setText("*");
         }else if (e.getSource()==percent) {
           label.setText("%");
+		}else if (e.getSource()==exponente) {
+			label.setText("exp");
 		}
 	   if (e.getSource()==result) {
 		   String operation=label.getText();
@@ -117,10 +130,13 @@ public void actionPerformed(ActionEvent e) {
 			label1.setText(""+result1);
 			break;
 
-    case "%":
+    	case "%":
 			result1=num1* num2 /100;
 			label1.setText(""+result1);
 			break;
+		case "exp":
+			result1= Math.pow(num1, num2);
+			label1.setText(""+result1);
 		default:
 			JFrame jFrame = new JFrame();
 			JOptionPane.showMessageDialog(jFrame,"Escoge solo una operacion");
