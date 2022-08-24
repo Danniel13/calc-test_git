@@ -15,61 +15,61 @@ public Calculadora() {
 	   setLayout(null);
 	   textField = new JTextField();
 	   textField.setBounds(50,50,130,50);
-	   textField.setFont(new Font("Arial",Font.BOLD,50));
+	   textField.setFont(new Font("Calibri",Font.BOLD,50));
 	   add(textField);
 	   
        textField2 = new JTextField();
        textField2.setBounds(220,50,130,50);
-	   textField2.setFont(new Font("Arial",Font.BOLD,50));
+	   textField2.setFont(new Font("Calibri",Font.BOLD,50));
 	   add(textField2);
 	   
 	   label = new JLabel();
 	   label.setBounds(185,50,50,50);
-	   label.setFont(new Font("Arial",Font.BOLD,30));
+	   label.setFont(new Font("Calibri",Font.BOLD,30));
 	   add(label);
 	   
 	   label1 = new JLabel();
 	   label1.setBounds(220,250,100,150);
-	   label1.setFont(new Font("Arial",Font.BOLD,25));
+	   label1.setFont(new Font("Calibri",Font.BOLD,25));
 	   add(label1);
 	   
 	   
 	   addition= new JButton("+");
 	   addition.setBounds(50,120,130,50);
 	   addition.addActionListener(this);
-	   addition.setFont(new Font("Arial",Font.BOLD,50));
+	   addition.setFont(new Font("Calibri",Font.BOLD,50));
 	   add(addition);
 
    	   
 	   substraction= new JButton("-");
 	   substraction.setBounds(50,220,130,50);
-	   substraction.setFont(new Font("Arial",Font.BOLD,50));
+	   substraction.setFont(new Font("Calibri",Font.BOLD,50));
 	   substraction.addActionListener(this);
 	   add(substraction);
 	   
 	   multiplication= new JButton("*");
 	   multiplication.setBounds(220,120,130,50);
 	   multiplication.addActionListener(this);
-	   multiplication.setFont(new Font("Arial",Font.BOLD,50));
+	   multiplication.setFont(new Font("Calibri",Font.BOLD,50));
 	   add(multiplication);
 	   
 	   
 	   division= new JButton("/");
 	   division.setBounds(220,220,130,50);
 	   division.addActionListener(this);
-	   division.setFont(new Font("Arial",Font.BOLD,50));
+	   division.setFont(new Font("Calibri",Font.BOLD,50));
 	   add(division);
 
      percent= new JButton("%"); //Function percent
 	   percent.setBounds(50,300,130,50);
 	   percent.addActionListener(this);
-	   percent.setFont(new Font("Arial",Font.BOLD,50));
+	   percent.setFont(new Font("Calibri",Font.BOLD,50));
 	   add(percent);
 	   
 	   result= new JButton("=");
 	   result.setBounds(50,400,300,50);
 	   result.addActionListener(this);
-	   result.setFont(new Font("Arial",Font.BOLD,50));
+	   result.setFont(new Font("Calibri",Font.BOLD,50));
 	   add(result);
 	   
 	  }
