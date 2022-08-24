@@ -11,7 +11,7 @@ public class Calculadora extends JFrame implements ActionListener {
      double result1;
  
 public Calculadora() {
-	   setTitle("Calculadora");
+	   setTitle("Calculadora Ensayo");
 	   setLayout(null);
 	   textField = new JTextField();
 	   textField.setBounds(50,50,130,50);
