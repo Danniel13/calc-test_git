@@ -1,89 +1,83 @@
 package Practica2;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.*;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
+import java.awt.*;
+import java.awt.event.*;
 public class Calculadora extends JFrame implements ActionListener {
     private JTextField textField,textField2;
-    private JButton addition,substraction,multiplication,division,percent, exponente, result;
+    private JButton addition,substraction,multiplication,division,percent,result;
     private JLabel label,label1;
     double result1;
 
 public Calculadora() {
-	   setTitle("Calculadora - Grupo 03");
-	   setLayout(null);
-	   textField = new JTextField();
-	   textField.setBounds(50,50,130,50);
-	   textField.setFont(new Font("Calibri",Font.BOLD,50));
-	   add(textField);
-	   
-       textField2 = new JTextField();
-       textField2.setBounds(220,50,130,50);
-	   textField2.setFont(new Font("Calibri",Font.BOLD,50));
-	   add(textField2);
-	   
-	   label = new JLabel();
-	   label.setBounds(185,50,50,50);
-	   label.setFont(new Font("Calibri",Font.BOLD,30));
-	   add(label);
-	   
-	   label1 = new JLabel();
-	   label1.setBounds(220,250,100,150);
-	   label1.setFont(new Font("Calibri",Font.BOLD,25));
-	   add(label1);
-	   
-	   
-	   addition= new JButton("+");
-	   addition.setBounds(50,120,130,50);
-	   addition.addActionListener(this);
-	   addition.setFont(new Font("Calibri",Font.BOLD,50));
-	   add(addition);
+	setTitle("Calculadora");
+	setLayout(null);
+	textField = new JTextField();
+	textField.setBounds(50,50,130,50);
+	textField.setFont(new Font("Arial",Font.BOLD,50));
+	textField.setBackground(new Color(0,0,0));
+	add(textField);
+	
+    textField2 = new JTextField();
+    textField2.setBounds(220,50,130,50);
+	textField2.setFont(new Font("Arial",Font.BOLD,50));
+	textField2.setBackground(new Color(0,0,0));
+	add(textField2);
+	
+	label = new JLabel();
+	label.setBounds(185,50,50,50);
+	label.setFont(new Font("Arial",Font.BOLD,30));
+	add(label);
 
-   	   
-	   substraction= new JButton("-");
-	   substraction.setBounds(50,220,130,50);
-	   substraction.setFont(new Font("Calibri",Font.BOLD,50));
-	   substraction.addActionListener(this);
-	   add(substraction);
-	   
-	   multiplication= new JButton("*");
-	   multiplication.setBounds(220,120,130,50);
-	   multiplication.addActionListener(this);
-	   multiplication.setFont(new Font("Calibri",Font.BOLD,50));
-	   add(multiplication);
-	   
-	   
-	   division= new JButton("/");
-	   division.setBounds(220,220,130,50);
-	   division.addActionListener(this);
-	   division.setFont(new Font("Calibri",Font.BOLD,50));
-	   add(division);
+	label1 = new JLabel();
+	label1.setBounds(200,400,150,50);
+	label1.setFont(new Font("Arial",Font.BOLD,25));
+	label1.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+	add(label1);
 
-       percent= new JButton("%"); //Function percent
-	   percent.setBounds(50,300,130,50);
-	   percent.addActionListener(this);
-	   percent.setFont(new Font("Calibri",Font.BOLD,50));
-	   add(percent);
+	addition= new JButton("+");
+	addition.setBounds(50,120,130,50);
+	addition.addActionListener(this);
+	addition.setFont(new Font("Arial",Font.BOLD,50));
+	addition.setBackground(new Color(255,165,0));
+	add(addition);
 
-	   exponente= new JButton("exp"); //Function percent
-	   exponente.setBounds(220,300,130,50);
-	   exponente.addActionListener(this);
-	   exponente.setFont(new Font("Arial",Font.BOLD,50));
-	   add(exponente);
-	   
-	   result= new JButton("=");
-	   result.setBounds(50,400,300,50);
-	   result.addActionListener(this);
-	   result.setFont(new Font("Calibri",Font.BOLD,50));
-	   add(result);
-	   
-	   
-	  }
+
+	substraction= new JButton("-");
+	substraction.setBounds(50,220,130,50);
+	substraction.setFont(new Font("Arial",Font.BOLD,50));
+	substraction.setBackground(new Color(255,165,0));
+	substraction.addActionListener(this);
+	add(substraction);
+	
+	multiplication= new JButton("*");
+	multiplication.setBounds(220,120,130,50);
+	multiplication.addActionListener(this);
+	multiplication.setFont(new Font("Arial",Font.BOLD,50));
+	multiplication.setBackground(new Color(255,165,0));
+	add(multiplication);
+	
+	division= new JButton("/");
+	division.setBounds(220,220,130,50);
+	division.addActionListener(this);
+	division.setFont(new Font("Arial",Font.BOLD,50));
+	division.setBackground(new Color(255,165,0));
+	add(division);
+
+    percent= new JButton("%"); //Function percent
+	percent.setBounds(130,300,130,50);
+	percent.addActionListener(this);
+	percent.setFont(new Font("Arial",Font.BOLD,50));
+	percent.setBackground(new Color(255,165,0));
+	add(percent);
+	
+	result= new JButton("=");
+	result.setBounds(50,400,130,50);
+	result.addActionListener(this);
+	result.setFont(new Font("Arial",Font.BOLD,50));
+	result.setBackground(new Color(255,165,0));
+	add(result);
+	}
 
 public void actionPerformed(ActionEvent e) {
 	double num1=0,num2=0;
@@ -95,7 +89,7 @@ public void actionPerformed(ActionEvent e) {
 		num1=Integer.parseInt(textField.getText());
 		num2=Integer.parseInt(textField2.getText());
 	}catch (NumberFormatException nfe) {
-		System.out.println("No introduzcas letras");
+		System.out.println("No metas letras");
 	}
 	if (e.getSource()==addition) {
 			label.setText("+");
@@ -106,9 +100,7 @@ public void actionPerformed(ActionEvent e) {
 		}else if (e.getSource()==multiplication) {
 		label.setText("*");
         }else if (e.getSource()==percent) {
-          label.setText("%");
-		}else if (e.getSource()==exponente) {
-			label.setText("exp");
+        label.setText("%");
 		}
 	if (e.getSource()==result) {
 		String operation=label.getText();
@@ -130,16 +122,13 @@ public void actionPerformed(ActionEvent e) {
 			label1.setText(""+result1);
 			break;
 
-    	case "%":
+    case "%":
 			result1=num1* num2 /100;
 			label1.setText(""+result1);
 			break;
-		case "exp":
-			result1= Math.pow(num1, num2);
-			label1.setText(""+result1);
 		default:
 			JFrame jFrame = new JFrame();
-			JOptionPane.showMessageDialog(jFrame,"Escoge solo una operacion");
+			JOptionPane.showMessageDialog(jFrame,"Escoge una operacion");
 		break;
 		}
 	}
@@ -147,10 +136,11 @@ public void actionPerformed(ActionEvent e) {
 
 
 public static void main (String[] args) {
-	   Calculadora calculadora = new Calculadora();
-	   calculadora.setBounds(0,0,400,500);
-	   calculadora.setVisible(true);
-	   calculadora.setResizable(false);
-	   calculadora.setLocationRelativeTo(null);
+	Calculadora calculadora = new Calculadora();
+	calculadora.setBounds(0,0,400,500);
+	calculadora.setVisible(true);
+	calculadora.setResizable(false);
+	calculadora.setLocationRelativeTo(null);
+	calculadora.getContentPane().setBackground(new Color(0,0,0));
 }
 }
